@@ -1,0 +1,27 @@
+target/
+.idea/
+*.iml
+.env
+.mvn/
+mvnw
+mvnw.cmd
+logs/
+
+
+# Python
+ai-service/.venv/
+ai-service/__pycache__/
+
+# Spring Boot
+ai-marketing-backend/target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Secrets
+.env
+*.log

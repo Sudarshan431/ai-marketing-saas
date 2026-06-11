@@ -1,0 +1,40 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: ai-marketing-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ai-marketing}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:pass123}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+jwt:
+  secret: ${JWT_SECRET:change-this-development-secret-to-at-least-32-characters}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
+ai-service:
+  base-url: ${AI_SERVICE_BASE_URL:http://localhost:8000}
+  timeout-seconds: ${AI_SERVICE_TIMEOUT_SECONDS:30}
+  max-retries: ${AI_SERVICE_MAX_RETRIES:3}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    com.aimarketing: INFO
+    org.springframework.security: WARN
